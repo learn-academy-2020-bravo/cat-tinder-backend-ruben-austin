@@ -1,0 +1,62 @@
+  [1m[35m (97.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "cat_tinder_backend_test"[0m
+  [1m[35m (504.3ms)[0m  [1m[35mCREATE DATABASE "cat_tinder_backend_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (26.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "cats" CASCADE[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "name" character varying, "age" integer, "enjoys" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200617201114)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-06-17 21:30:08.859961"], ["updated_at", "2020-06-17 21:30:08.859961"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (24.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "8e7d3145cb50bdd9b2ae2f60058f66570c4b39e4"], ["created_at", "2020-06-17 21:30:08.869615"], ["updated_at", "2020-06-17 21:30:08.869615"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (25.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCat Create (1.1ms)[0m  [1m[32mINSERT INTO "cats" ("name", "age", "enjoys", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Felix"], ["age", 2], ["enjoys", "Walks in the park"], ["created_at", "2020-06-17 21:40:53.858186"], ["updated_at", "2020-06-17 21:40:53.858186"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats" for 127.0.0.1 at 2020-06-17 14:40:53 -0700
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (8.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+Completed 200 OK in 14ms (Views: 1.1ms | ActiveRecord: 8.6ms | Allocations: 593)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (21.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCat Create (0.8ms)[0m  [1m[32mINSERT INTO "cats" ("name", "age", "enjoys", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Felix"], ["age", 2], ["enjoys", "Walks in the park"], ["created_at", "2020-06-17 21:50:13.622415"], ["updated_at", "2020-06-17 21:50:13.622415"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats" for 127.0.0.1 at 2020-06-17 14:50:13 -0700
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (20.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+Completed 200 OK in 26ms (Views: 1.7ms | ActiveRecord: 20.0ms | Allocations: 592)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCat Create (0.6ms)[0m  [1m[32mINSERT INTO "cats" ("name", "age", "enjoys", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Felix"], ["age", 2], ["enjoys", "Walks in the park"], ["created_at", "2020-06-17 21:50:56.609354"], ["updated_at", "2020-06-17 21:50:56.609354"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/cats" for 127.0.0.1 at 2020-06-17 14:50:56 -0700
+Processing by CatsController#index as HTML
+  [1m[36mCat Load (12.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+Completed 200 OK in 17ms (Views: 1.4ms | ActiveRecord: 12.0ms | Allocations: 592)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Started POST "/cats" for 127.0.0.1 at 2020-06-17 14:50:56 -0700
+Processing by CatsController#create as HTML
+  Parameters: {"cat"=>{"name"=>"Buster", "age"=>"4", "enjoys"=>"Meow Mix, and plenty of sunshine."}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCat Create (0.2ms)[0m  [1m[32mINSERT INTO "cats" ("name", "age", "enjoys", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Buster"], ["age", 4], ["enjoys", "Meow Mix, and plenty of sunshine."], ["created_at", "2020-06-17 21:50:56.661131"], ["updated_at", "2020-06-17 21:50:56.661131"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 711)
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats" ORDER BY "cats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
