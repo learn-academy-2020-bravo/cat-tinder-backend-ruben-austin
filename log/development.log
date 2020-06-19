@@ -163,3 +163,63 @@ puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.5) lib/puma/server.rb:472:in `process_client'
 puma (4.3.5) lib/puma/server.rb:328:in `block in run'
 puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-06-19 09:32:19 -0700
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/learnacademy/.rvm/gems/ruby-2.7.0/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/learnacademy/.rvm/gems/ruby-2.7.0/gems/railties-6.0.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 28.3ms | Allocations: 295)
+Completed 200 OK in 58ms (Views: 38.3ms | ActiveRecord: 0.0ms | Allocations: 1642)
+
+
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE DATABASE "cat_tinder_backend_development" ENCODING = 'unicode'[0m
+  [1m[35m (26.9ms)[0m  [1m[35mCREATE DATABASE "cat_tinder_backend_test" ENCODING = 'unicode'[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (32.3ms)[0m  [1m[32mINSERT INTO "cats" ("name", "age", "enjoys", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Zeus"], ["age", 10], ["enjoys", "Acting like the boss."], ["created_at", "2020-06-19 17:35:30.693210"], ["updated_at", "2020-06-19 17:35:30.693210"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("name", "age", "enjoys", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Toast"], ["age", 5], ["enjoys", "Sunny spots and watching small animals."], ["created_at", "2020-06-19 17:35:30.732752"], ["updated_at", "2020-06-19 17:35:30.732752"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("name", "age", "enjoys", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Felix"], ["age", 2], ["enjoys", "Long naps on the couch, and a warm fire."], ["created_at", "2020-06-19 17:35:30.739268"], ["updated_at", "2020-06-19 17:35:30.739268"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (23.6ms)[0m  [1m[32mINSERT INTO "cats" ("name", "age", "enjoys", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Homer"], ["age", 12], ["enjoys", "Food mostly, really just food."], ["created_at", "2020-06-19 17:35:30.749175"], ["updated_at", "2020-06-19 17:35:30.749175"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCat Load (0.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/cats" for ::1 at 2020-06-19 10:42:02 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CatsController#index as */*
+  [1m[36mCat Load (17.1ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4:in `index'
+Completed 200 OK in 57ms (Views: 18.8ms | ActiveRecord: 26.2ms | Allocations: 5984)
+
+
+Started GET "/cats" for ::1 at 2020-06-19 10:45:33 -0700
+Processing by CatsController#index as */*
+  [1m[36mCat Load (0.9ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4:in `index'
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.9ms | Allocations: 1847)
+
+
+Started GET "/cats" for ::1 at 2020-06-19 10:45:46 -0700
+Processing by CatsController#index as */*
+  [1m[36mCat Load (1.5ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4:in `index'
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 1.5ms | Allocations: 1847)
+
+
+Started GET "/cats" for ::1 at 2020-06-19 10:46:32 -0700
+Processing by CatsController#index as */*
+  [1m[36mCat Load (1.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4:in `index'
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 1.2ms | Allocations: 1847)
+
+
+Started GET "/cats" for ::1 at 2020-06-19 10:49:35 -0700
+Processing by CatsController#index as */*
+  [1m[36mCat Load (45.0ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:4:in `index'
+Completed 200 OK in 52ms (Views: 5.6ms | ActiveRecord: 45.0ms | Allocations: 1831)
+
+
