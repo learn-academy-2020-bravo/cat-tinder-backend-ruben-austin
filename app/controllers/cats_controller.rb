@@ -12,6 +12,17 @@ class CatsController < ApplicationController
     else
       render json: cat.errors, status: 422
     end
+
+
+  end
+  
+  def show
+    cat= cat.find(:id)
+    if cat.valid?
+    render json: cat
+    else
+    render json: cat.errors, status: 422
+    end
   end
 
   private
